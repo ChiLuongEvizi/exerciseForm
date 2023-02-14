@@ -5,7 +5,7 @@ import useClickOutSide from "../../hooks/useClickOutSide";
 
 const DropdownWrapper = styled.div`
   position: relative;
-  margin-top: 20px;
+  margin-bottom: 10px;
   & .dropdown-list {
     border: 1px solid transparent;
     background-color: #f3f3f4;

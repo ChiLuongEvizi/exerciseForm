@@ -2,10 +2,9 @@ import React from "react";
 import styled from "styled-components";
 
 const ButtonStyles = styled.button`
-  width: 100%;
+  width: ${(props) => props.width || "100%"};
   border-radius: 10px;
-  margin: 20px 0;
-  padding: 20px;
+  padding: 10px;
   font-weight: 700;
   color: white;
   background-color: ${(props) => (props.primary ? "#EA4C89" : "")};
