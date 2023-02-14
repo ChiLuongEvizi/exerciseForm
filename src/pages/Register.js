@@ -59,7 +59,7 @@ const schema = yup.object({
 const Register = () => {
   const methods = useForm({
     mode: "onChange",
-    // resolver: yupResolver(schema),
+    resolver: yupResolver(schema),
     defaultValues: {},
   });
   const {
