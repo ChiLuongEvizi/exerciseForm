@@ -8,6 +8,20 @@ import Label from "../components/label/Label";
 import Checkbox from "../components/checkbox/Checkbox";
 import styled from "styled-components";
 import Dropdown from "../components/dropdown/Dropdown";
+import Button from "../components/button/Button";
+
+const FormStyles = styled.form`
+  margin: 0 auto;
+  max-width: 600px;
+  padding: 20px 40px;
+  height: 100vh;
+  & .login {
+    text-align: center;
+    font-weight: 900;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+  }
+`;
 
 const data = [
   {
@@ -41,11 +55,6 @@ const schema = yup.object({
     .email("Please enter valid email. Example:abcxyz@gmail.com ")
     .required("Enter your email"),
 });
-
-const FormStyles = styled.form`
-  margin: 50px auto 0;
-  max-width: 600px;
-`;
 
 const Register = () => {
   const methods = useForm({
@@ -87,6 +96,7 @@ const Register = () => {
   return (
     <FormProvider {...methods}>
       <FormStyles onSubmit={handleSubmit(onSubmitHandler)}>
+        <div class="login">Login</div>
         <Field>
           <Label htmlFor="username">UserName</Label>
           <Input
@@ -149,25 +159,23 @@ const Register = () => {
             data={data}
           />
         </Field>
-        <button
+
+        <Button
           className={`p-5 bg-green-500 rounded-lg w-full  my-4 ${
             isSubmitting ? "opacity-50" : ""
           }`}
           disabled={isSubmitting}
+          type="submit"
         >
           {isSubmitting ? (
             <div className="w-5 h-5 border-4 p-2 border-t-transparent rounded-full animate-spin mx-auto"></div>
           ) : (
             " Submit"
           )}
-        </button>
-        <button
-          type="button"
-          onClick={handleDemoForm}
-          className=" bg-slate-500 p-5"
-        >
+        </Button>
+        <Button onClick={handleDemoForm} className=" bg-slate-500 p-5 ">
           Demo Form
-        </button>
+        </Button>
         {isSubmitSuccessful && <div className="text-lg">Successful login</div>}
       </FormStyles>
     </FormProvider>

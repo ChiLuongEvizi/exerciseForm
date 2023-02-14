@@ -3,7 +3,7 @@ import { useController, useFormContext } from "react-hook-form";
 import styled from "styled-components";
 
 const InputStyles = styled.div`
-  margin-top: 20px;
+  margin-top: 10px;
   & input {
     padding: 20px;
     border: 1px solid transparent;
